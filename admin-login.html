@@ -3,90 +3,207 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Login</title>
+    <title>SCC ReportHub - Admin Login</title>
     <style>
-        body {
+        * {
             margin: 0;
-            font-family: Arial, sans-serif;
-            display: flex;
-            height: 100vh;
+            padding: 0;
+            box-sizing: border-box;
         }
-        .branding {
-            background: linear-gradient(to right, #8e44ad, #4b0082);
-            color: white;
-            width: 50%;
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0d2a 0%, #1a1f4d 100%);
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 20px;
+            overflow: hidden;
+        }
+
+        .login-container {
+            display: flex;
             flex-direction: column;
-        }
-        .login-form {
-            width: 50%;
-            display: flex;
-            justify-content: center;
             align-items: center;
-            background: white;
-            padding: 40px;
-            box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.1);
-        }
-        .form-container {
+            justify-content: center;
             width: 100%;
-            max-width: 400px;
-        }
-        h2 {
-            margin-bottom: 20px;
+            padding: 60px 40px;
             text-align: center;
         }
-        input[type="text"], input[type="password"] {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            transition: border-color 0.3s ease;
+
+        .title {
+            color: #c8c8d8;
+            font-size: 48px;
+            font-weight: 300;
+            letter-spacing: 4px;
+            margin-bottom: 60px;
+            text-transform: uppercase;
         }
-        input[type="text"]:focus, input[type="password"]:focus {
-            border-color: #8e44ad;
+
+        .logo-circle {
+            width: 180px;
+            height: 180px;
+            background: linear-gradient(135deg, #6b7ee8 0%, #8b7bd8 100%);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 80px;
+            box-shadow: 0 0 50px rgba(107, 126, 232, 0.6), 
+                        0 0 100px rgba(139, 123, 216, 0.3);
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            position: relative;
         }
-        button {
+
+        .triangle {
+            width: 0;
+            height: 0;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            border-bottom: 85px solid white;
+        }
+
+        .form-title {
+            color: #5b8dd8;
+            font-size: 20px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
             width: 100%;
-            padding: 10px;
-            background: #8e44ad;
+        }
+
+        .form-group input {
+            width: 100%;
+            max-width: 380px;
+            padding: 16px 25px;
+            background: rgba(91, 141, 216, 0.12);
+            border: 2px solid rgba(91, 141, 216, 0.5);
+            border-radius: 40px;
+            color: #a8b8d8;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .form-group input::placeholder {
+            color: rgba(168, 184, 216, 0.6);
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #7b9dd8;
+            background: rgba(91, 141, 216, 0.2);
+            box-shadow: 0 0 20px rgba(107, 126, 232, 0.3);
+        }
+
+        .login-btn {
+            width: 100%;
+            max-width: 380px;
+            padding: 16px 40px;
+            background: linear-gradient(90deg, #0052ff 0%, #0041cc 100%);
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 40px;
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 2px;
             cursor: pointer;
-            transition: background 0.3s ease;
+            transition: all 0.3s ease;
+            margin-top: 30px;
+            text-transform: uppercase;
+            box-shadow: 0 8px 30px rgba(0, 82, 255, 0.5);
         }
-        button:hover {
-            background: #732d91;
+
+        .login-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 82, 255, 0.7);
+            background: linear-gradient(90deg, #0052ff 0%, #0033aa 100%);
         }
+
+        .login-btn:active {
+            transform: translateY(-2px);
+        }
+
         @media (max-width: 768px) {
-            body {
-                flex-direction: column;
+            .login-container {
+                padding: 40px 20px;
             }
-            .branding, .login-form {
-                width: 100%;
-                height: auto;
+
+            .title {
+                font-size: 36px;
+                margin-bottom: 40px;
             }
+
+            .logo-circle {
+                width: 150px;
+                height: 150px;
+                margin-bottom: 60px;
+            }
+
+            .triangle {
+                border-left: 40px solid transparent;
+                border-right: 40px solid transparent;
+                border-bottom: 70px solid white;
+            }
+
+            .form-group input,
+            .login-btn {
+                max-width: 100%;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .login-container {
+            animation: fadeIn 0.8s ease-out;
         }
     </style>
 </head>
 <body>
-    <div class="SCC ReportHub">
-        <h1>SCC ReportHub</h1>
-        <p>Welcome? to the Admin Portal</p>
-    </div>
-    <div class="login-form">
-        <div class="form-container">
-            <h2>Login</h2>
-            <form>
-                <input type="text" placeholder="Username" required/>
-                <input type="password" placeholder="Password" required/>
-                <button type="submit">Login</button>
-            </form>
+    <div class="login-container">
+        <h1 class="title">SCC ReportHub</h1>
+
+        <div class="logo-circle">
+            <div class="triangle"></div>
         </div>
+
+        <h2 class="form-title">ADMIN ACCESS</h2>
+
+        <form action="/admin/login" method="POST">
+            <div class="form-group">
+                <input 
+                    type="text" 
+                    name="employeeId" 
+                    placeholder="Employee ID" 
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <input 
+                    type="password" 
+                    name="password" 
+                    placeholder="Password" 
+                    required
+                >
+            </div>
+
+            <button type="submit" class="login-btn">LOGIN</button>
+        </form>
     </div>
 </body>
 </html>
