@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SCC ReportHub - Admin Login</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      background: #0b0a3c;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+    }
+
+    .container {
+      text-align: center;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .title {
+      font-size: 22px;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+    }
+
+    .logo {
+      width: 90px;
+      height: 90px;
+      margin: 10px auto 20px;
+      border-radius: 50%;
+      background: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #0b0a3c;
+      font-weight: bold;
+    }
+
+    .subtitle {
+      font-size: 18px;
+      margin-bottom: 20px;
+      color: #6fa8ff;
+      font-weight: bold;
+    }
+
+    .input-group {
+      margin-bottom: 15px;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 12px;
+      border-radius: 20px;
+      border: none;
+      outline: none;
+      background: #2c2a6a;
+      color: white;
+      font-size: 14px;
+    }
+
+    .input-group input::placeholder {
+      color: #b0b0d6;
+    }
+
+    .login-btn {
+      margin-top: 10px;
+      width: 60%;
+      padding: 12px;
+      border: none;
+      border-radius: 25px;
+      background: linear-gradient(90deg, #1e4bff, #3a6bff);
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .login-btn:hover {
+      transform: scale(1.05);
+    }
+
+    .error {
+      margin-top: 10px;
+      color: #ff6b6b;
+      font-size: 13px;
+      display: none;
+    }
+
+    @media (max-width: 500px) {
+      .container {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="title">SCC ReportHub</div>
+
+    <div class="logo">LOGO</div>
+
+    <div class="subtitle">ADMIN ACCESS</div>
+
+    <div class="input-group">
+      <input type="text" id="username" placeholder="Employee ID">
+    </div>
+
+    <div class="input-group">
+      <input type="password" id="password" placeholder="Password">
+    </div>
+
+    <button class="login-btn" onclick="login()">LOGIN</button>
+
+    <div class="error" id="errorMsg">Invalid credentials</div>
+  </div>
+
+  <script>
+    function login() {
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      const errorMsg = document.getElementById('errorMsg');
+
+      if (username === 'admin' && password === '1234') {
+        alert('Login Successful!');
+      } else {
+        errorMsg.style.display = 'block';
+      }
+    }
+  </script>
+
+</body>
+</html>
